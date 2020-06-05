@@ -90,7 +90,7 @@ public class Intenciones  extends AppCompatActivity {
                 Uri gmmIntentUri;
                 gmmIntentUri = Uri.parse("waze://?ll=" + -18.013739816 + "," + -70.2510593169 + "&navigate=yes");
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.waze");
+                mapIntent.setPackage("com.waze");//
                 if (mapIntent.resolveActivity(getPackageManager()) != null)
                     startActivity(mapIntent);
                 else
