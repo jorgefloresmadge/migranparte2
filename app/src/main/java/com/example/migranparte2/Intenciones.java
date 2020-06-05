@@ -27,7 +27,8 @@ public class Intenciones  extends AppCompatActivity {
     public void Llamar(View view) {
         //Intent intent = new Intent(Intent.ACTION_DIAL,
         Intent intent = new Intent(Intent.ACTION_CALL,
-                Uri.parse("tel:952000243"));
+                Uri.parse("tel:992582364"));
+                //Uri.parse("tel:952000243"));
         startActivity(intent);
     }
     public void maps(View view) {
@@ -52,8 +53,10 @@ public class Intenciones  extends AppCompatActivity {
         PackageManager packageManager = this.getPackageManager();//administrador de paquetes
         Intent i = new Intent(Intent.ACTION_VIEW);
         try {
-            String url = "https://api.whatsapp.com/send?phone=" + "+51952000243" + "&text="
-                    + URLEncoder.encode("Buen día, tenia una duda del curso ... ", "UTF-8");
+            //String url = "https://api.whatsapp.com/send?phone=" + "+51952000243" + "&text="
+            String url = "https://api.whatsapp.com/send?phone=" + "+51992582364" + "&text="
+                    //+ URLEncoder.encode("Buen día, tenia una duda del curso ... ", "UTF-8");
+                    + URLEncoder.encode("Hola Preciosa, te amo mi vida ... ", "UTF-8");
             i.setPackage("com.whatsapp");//ide de wasap
             i.setData(Uri.parse(url));//enviamos esta URL
             if (i.resolveActivity(packageManager) != null) {//SI EXSITE ESTA ACTIVIDAD, SE ENVIA
@@ -69,11 +72,11 @@ public class Intenciones  extends AppCompatActivity {
     }
 
     public void navegacion(View view) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);//el DIALOGO
         builder.setCancelable(true);
         builder.setMessage("Seleccione la aplicación");
         builder.setTitle("Escoja entre Waze o Google Maps");
-        builder.setNeutralButton("Google Map", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton("Google Map", new DialogInterface.OnClickListener() {//LO QUE VA A OCURRIR CUANDO LO PULSE
             public void onClick(DialogInterface dialog, int which) {
                 Uri gmmIntentUri;
                 gmmIntentUri = Uri.parse("google.navigation:q=" + -18.013739816 + "," + -70.2510593169);
@@ -90,7 +93,7 @@ public class Intenciones  extends AppCompatActivity {
                 Uri gmmIntentUri;
                 gmmIntentUri = Uri.parse("waze://?ll=" + -18.013739816 + "," + -70.2510593169 + "&navigate=yes");
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.waze");//
+                mapIntent.setPackage("com.waze");
                 if (mapIntent.resolveActivity(getPackageManager()) != null)
                     startActivity(mapIntent);
                 else
@@ -107,6 +110,10 @@ public class Intenciones  extends AppCompatActivity {
                 return;
             }
         });
-        builder.show();
+        builder.show();//SIN ESTO NO FUNCIONA EL DIALOGO
+    }
+
+
+    public void Multimedia(View view) {
     }
 }

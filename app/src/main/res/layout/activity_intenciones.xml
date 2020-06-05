@@ -41,4 +41,9 @@
         android:layout_height="wrap_content"
         android:onClick="navegacion"
         android:text="Navegacion" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Multimedia"
+        android:text="Multimedia" />
 </LinearLayout>
